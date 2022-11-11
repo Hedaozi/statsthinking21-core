@@ -19,7 +19,7 @@ output:
   bookdown::gitbook:
     lib_dir: "book_assets"
     config:
-      edit: https://github.com/Hedaozi/statsthinking21-core/edit/master/%s
+      edit: https://github.com/Hedaozi/statsthinking21-core/edit/bilingual/%s
     includes:
       in_header:
         - google_analytics.html
