@@ -7,7 +7,7 @@ output:
       in_header: google_analytics.html
   html_document: default
 ---
-# Introduction {#introduction}
+# Introduction 导论 {#introduction}
 
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
 library(tidyverse)
@@ -16,35 +16,59 @@ library(tidyverse)
 
 "Statistical thinking will one day be as necessary for efficient citizenship as the ability to read and write.” - H.G. Wells
 
-## What is statistical thinking?
+“有朝一日，统计思维会像读写能力一样成为合格的公民的必要条件。”——H.G. Wells
 
-Statistical thinking is a way of understanding a complex world by describing it in relatively simple terms that nonetheless capture essential aspects of its structure or function, and that also provide us some idea of how uncertain we are about that knowledge.  The foundations of statistical thinking come primarily from mathematics and statistics, but also from computer science, psychology, and other fields of study.  
 
-We can distinguish statistical thinking from other forms of thinking that are less likely to describe the world accurately.  In particular, human intuition often tries to answer the same questions that we can answer using statistical thinking, but often gets the answer wrong.  For example, in recent years most Americans have reported that they think that violent crime was worse compared to the previous year ([Pew Research Center](http://www.pewresearch.org/fact-tank/2018/01/30/5-facts-about-crime-in-the-u-s/)).  However, a statistical analysis of the actual crime data shows that in fact violent crime has steadily *decreased* since the 1990's.  Intuition fails us because we rely upon best guesses (which psychologists refer to as *heuristics*) that can often get it wrong.  For example, humans often judge the prevalence of some event (like violent crime) using an *availability heuristic* -- that is, how easily can we think of an example of violent crime. For this reason, our judgments of increasing crime rates may be more reflective of increasing news coverage, in spite of an actual decrease in the rate of crime. Statistical thinking provides us with the tools to more accurately understand the world and overcome the biases of human judgment
+## What is statistical thinking? 什么是统计思维
 
-## Dealing with statistics anxiety
+Statistical thinking is a way of understanding a complex world by describing it in relatively simple terms that nonetheless capture essential aspects of its structure or function, and that also provide us some idea of how uncertain we are about that knowledge.  The foundations of statistical thinking come primarily from mathematics and statistics, but also from computer science, psychology, and other fields of study. 
+
+统计思维是一种理解复杂世界的方式。它以相对简单的术语描述世界，但能捕捉到其结构或功能的基本方面，并给出对这一知识的不确定性的认识。统计思维的基础主要来自数学和统计学，但也来自计算机科学、心理学和其他研究领域。
+
+We can distinguish statistical thinking from other forms of thinking that are less likely to describe the world accurately.  In particular, human intuition often tries to answer the same questions that we can answer using statistical thinking, but often gets the answer wrong.  For example, in recent years most Americans have reported that they think that violent crime was worse compared to the previous year ([Pew Research Center](http://www.pewresearch.org/fact-tank/2018/01/30/5-facts-about-crime-in-the-u-s/)).  However, a statistical analysis of the actual crime data shows that in fact violent crime has steadily *decreased* since the 1990's.  Intuition fails us because we rely upon best guesses (which psychologists refer to as *heuristics*) that can often get it wrong.  For example, humans often judge the prevalence of some event (like violent crime) using an *availability heuristic* -- that is, how easily can we think of an example of violent crime. For this reason, our judgments of increasing crime rates may be more reflective of increasing news coverage, in spite of an actual decrease in the rate of crime. Statistical thinking provides us with the tools to more accurately understand the world and overcome the biases of human judgment.
+
+我们可以将统计思维与其他在准确描述世界这一功能上有所欠缺的思维形式区分开来，特别是人类的直觉。人类的直觉经常试图回答统计思维同样可以回答的问题，但往往得到错误的答案。例如，近年来大多数美国人认为社会上的暴力犯罪一年比一年更糟糕([Pew Research Center](http://www.pewresearch.org/fact-tank/2018/01/30/5-facts-about-crime-in-the-u-s/))。然而，对实际犯罪数据的统计分析表明，自20世纪90年代以来，暴力犯罪已经稳步*下降*。直觉失败的原因在于我们往往依靠会出错的猜想（心理学家称之为“*heuristics*”）来做出判断。例如，人们常常用想到例子的容易程度（即可得性启发法，“*availability heuristic*”）来判断事件（如暴力犯罪）的普遍性。因此，人们对犯罪率上升的判断可能更多地反映了新闻报道的增加，尽管犯罪率实际已经下降。统计学思维为我们提供了更准确地理解世界和克服人类判断偏见的工具。
+
+## Dealing with statistics anxiety 应对统计学的焦虑
 
 Many people come to their first statistics class with a lot of trepidation and anxiety, especially once they hear that they will also have to learn to code in order to analyze data. In my class I give students a survey prior to the first session in order to measure their attitude towards statistics, asking them to rate a number of statements on a scale of 1 (strongly disagree) to 7 (strongly agree). One of the items on the survey is "The thought of being enrolled in a statistics course makes me nervous".  In a recent class, almost two-thirds of the class responded with a five or higher, and about one-fourth of the students said that they strongly agreed with the statement.  So if you feel nervous about starting to learn statistics, you are not alone.
 
+许多人在上第一堂统计课时，都会感到非常惶恐和焦虑，尤其是在了解到必须学习写代码来分析数据时。在我执教的课程中，我会在第一节课前做调查，以了解学生们对统计学的态度。在这份调查中，我要求他们对一些说法进行评分，范围为1（非常不同意）到7（非常同意）。该调查包含了“一想到要参加统计学课程，我就紧张”这一题器。在最近的一门课上，几乎有三分之二的学生回答是5分或以上，大约四分之一的学生说他们非常同意这个说法。因此，如果你对开始学习统计学感到紧张，你并不孤单。
+
 Anxiety feels uncomfortable, but psychology tells us that this kind of emotional arousal can actually help us perform *better* on many tasks, by focusing our attention. So if you start to feel anxious about the material in this book, remind yourself that many other readers are feeling similarly, and that this emotional arousal could actually help you learn the material better (even if it doesn't seem like it!).
 
-## What can statistics do for us?
+焦虑让人感觉不舒服。但心理学告诉我们，这种情绪唤起实际上可以让我们的注意力更加集中，从而帮助我们在许多任务上表现得*更好*。因此，如果你开始对这本书中的材料感到焦虑，请提醒自己，许多其他读者也有类似的感觉。这种情绪唤起实际上可以帮助你更好地学习这些材料（即使它看起来并不像！）。
+
+## What can statistics do for us? 统计学能为我们做什么？
 
 There are three major things that we can do with statistics:
 
+统计学主要可以用来做三件事：
+
 - *Describe*: The world is complex and we often need to describe it in a simplified way that we can understand.  
+- *描述*：世界是复杂的，我们常常需要用一种简化的方式来描述它，以帮助我们理解。 
 - *Decide*: We often need to make decisions based on data, usually in the face of uncertainty.
+- *推断*：我们常常需要根据数据做出推断，通常是在面对不确定性的时候。
 - *Predict*: We often wish to make predictions about new situations based on our knowledge of previous situations.
+- *预测*：我们常常希望根据对以前情况的了解，对新情况作出预测。
 
 Let's look at an example of these in action, centered on a question that many of us are interested in: How do we decide what's healthy to eat?  There are many different sources of guidance; government dietary guidelines, diet books, and bloggers, just to name a few.  Let's focus in on a specific question: Is saturated fat in our diet a bad thing?
 
+让我们以许多人感兴趣的问题为中心举一个例子：我们如何知道吃什么是健康的？在这一议题上，有许多不同的参考来源：政府的饮食指南、饮食书籍和美食博主，等等。让我们聚焦到一个具体问题上：我们饮食中的饱和脂肪是一件坏事吗？
+
 One way that we might answer this question is common sense.  If we eat fat,  then it's going to turn straight into fat in our bodies, right?  And we have all seen photos of arteries clogged with fat, so eating fat is going to clog our arteries, right?
+
+常识是回答这一问题的可能方式。如果我们吃了脂肪，那么它就会在我们体内直接变成脂肪，对吗？我们都见过动脉被脂肪堵塞的照片，所以吃脂肪会堵塞我们的动脉，对吗？
 
 Another way that we might answer this question is by listening to authority figures.  The Dietary Guidelines from the US Food and Drug Administration have as one of their Key Recommendations that "A healthy eating pattern limits saturated fats". You might hope that these guidelines would be based on good science, and in some cases they are, but as Nina Teicholz outlined in her book "Big Fat Surprise"[@teic:2014], this particular recommendation seems to be based more on the longstanding dogma of nutrition researchers than on actual evidence.
 
+听取权威人士的意见是另一种方式。美国食品和药物管理局的膳食指南将“健康的饮食模式限制饱和脂肪”作为其关键建议之一。你可能期望这些指南基于充分的科学证明。在某些情况下它们的确如此，但正如Nina Teicholz在她的书“Big Fat Surprise”[@teic:2014]中所言，这个建议似乎更多基于营养研究人员的长期教条，而不是基于实际证据。
+
 Finally, we might look at actual scientific research.  Let's start by looking at a large study called the PURE study, which has examined diets and health outcomes (including death) in more than 135,000 people from 18 different countries.  In one of the analyses of this dataset (published in *The Lancet* in 2017; @dehg:ment:zhan:2017), the PURE investigators reported an analysis of how intake of various classes of macronutrients (including saturated fats and carbohydrates) was related to the likelihood of dying during the time that people were followed. People were followed for a *median* of 7.4 years, meaning that half of the people in the study were followed for less and half were followed for more than 7.4 years. Figure \@ref(fig:PureDeathSatFat) plots some of the data from the study (extracted from the paper), showing the relationship between the intake of both saturated fats and carbohydrates and the risk of dying from any cause.
 
-```{r PureDeathSatFat, echo=FALSE,fig.cap="A plot of data from the PURE study, showing the relationship between death from any cause and the relative intake of saturated fats and carbohydrates.",fig.width=4,fig.height=4,out.height='50%'}
+最后，让我们将目光放在科学研究上。一项名为PURE的大型研究考察了超过13.5万来自18个不同国家的人的饮食和健康结果（包括死亡）。 在对这一数据集的分析中 (published in *The Lancet* in 2017; @dehg:ment:zhan:2017)，研究者报告了各类宏量营养素（包括饱和脂肪和碳水化合物）摄入与人们在被追访期间的死亡可能性的分析。追访时间的*中位数*为7.4年，这意味着研究中一半的人被追访的时间短于7.4年，而另一半被追访的时间超过7.4年。Figure \@ref(fig:PureDeathSatFat)绘制了该研究的一些数据（从论文中提取），显示了饱和脂肪和碳水化合物的摄入量与因任何原因死亡的风险之间的关系。
+
+```{r PureDeathSatFat, echo=FALSE,fig.cap="A plot of data from the PURE study, showing the relationship between death from any cause and the relative intake of saturated fats and carbohydrates. \n任何原因导致的死亡与饱和脂肪和碳水化合物的相对摄入量之间的关系。数据来源为PURE研究。",fig.width=4,fig.height=4,out.height='50%'}
 
 carb_rr <- c(1, 1.07, 1.06, 1.17, 1.28)
 satfat_rr <- c(1, 0.96, 0.92, 0.85, 0.86)
@@ -52,8 +76,8 @@ satfat_rr <- c(1, 0.96, 0.92, 0.85, 0.86)
 df <- 
   data.frame(
     quartile = seq(1, 5), 
-    Carbohydrates = carb_rr, 
-    SaturatedFat = satfat_rr
+    `碳水化合物` = carb_rr, 
+    `饱和脂肪` = satfat_rr
   )
 
 df  %>% 
@@ -65,64 +89,94 @@ df  %>%
   theme(legend.position = c(0.2,0.9)) +
   theme(aspect.ratio = 1) +
   labs(
-    y = "Relative risk of dying from any cause",
-    x = "Quintiles of nutrient intake"
+    y = "任何原因导致的死亡的相对风险",
+    x = "营养摄入量的五个分位数组"
   )
 ```
 
 
 This plot is based on ten numbers.  To obtain these numbers, the researchers split the group of 135,335 study participants (which we call the "sample") into 5 groups ("quintiles") after ordering them in terms of their intake of either of the nutrients; the first quintile contains the 20% of people with the lowest intake, and the 5th quintile contains the 20% with the highest intake.  The researchers then computed how often people in each of those groups died during the time they were being followed. The figure expresses this in terms of the *relative risk* of dying in comparison to the lowest quintile: If this number is greater than one, it means that people in the group are _more_ likely to die than are people in the lowest quintile, whereas if it's less than one, it means that people in the group are _less_ likely to die. The figure is pretty clear: People who ate more saturated fat were *less* likely to die during the study, with the lowest death rate seen for people who were in the fourth quintile (that is, who ate more fat than the lowest 60% but less than the top 20%).  The opposite is seen for carbohydrates; the more carbs a person ate, the more likely they were to die during the study. This example shows how we can use statistics to *describe* a complex dataset in terms of a much simpler set of numbers; if we had to look at the data from each of the study participants at the same time, we would be overloaded with data and it would be hard to see the pattern that emerges when they are described more simply.
 
+该图表基于10个数字。为获取这些数字，研究人员根据营养素的摄入量，将135335名研究参与者（我们将这135335名研究参与者称作“样本”）等分为有序的5组（每组包含20%的人，称为“五分组数组”）：第1个五分位数组包含20%摄入量最低的人，第5个五分位数组包含20%摄入量最高的人。然后，研究人员计算了这些群体中的每个人在被追访期间的死亡频率。上述图形使用死亡的“相对风险”（relative risk）这一术语来表示不同组相较于摄入量最低的组的水平：如果相对风险低大于1，说明这一组中的人们，相比于摄入量最低的组的人而言，_更容易_死亡；反之，若小于1，则说明_更不容易_死亡。结果是清晰的：在研究期间，摄入更多饱和脂肪的人*更不容易*死亡，而处于第4个五分位数组的人（脂肪摄入比最低的60%多，但比最高的20%少）死亡率最低。碳水化合物的情况正好相反；一个人吃的碳水化合物越多，他们在研究期间就越可能死亡。这个例子说明了我们如何使用统计学来*描述*一个复杂的数据集，即用一组更简单的数字来描述；如果我们不得不同时看每个研究参与者的数据，我们会被数据所淹没，也很难看出以简单形式描述时所展现的模式。
+
 The numbers in Figure \@ref(fig:PureDeathSatFat) seem to show that deaths decrease with saturated fat and increase with carbohydrate intake, but we also know that there is a lot of uncertainty in the data; there are some people who died early even though they ate a low-carb diet, and, similarly, some people who ate a ton of carbs but lived to a ripe old age.  Given this variability, we want to *decide* whether the relationships that we see in the data are large enough that we wouldn't expect them to occur randomly if there was not truly a relationship between diet and longevity.  Statistics provide us with the tools to make these kinds of decisions, and often people from the outside view this as *the* main purpose of statistics.  But as we will see throughout the book, this need for black-and-white decisions based on fuzzy evidence has often led researchers astray.
+
+Figure\@ref(fig:PureDeathSatFat)中的数字似乎表明，死亡人数随着饱和脂肪摄入的增加而减少，随着碳水化合物摄入的增加而增加。但我们同样知道，数据中有很多不确定性：有的人即使遵循低碳水化合物的膳食，但也早早过世；也有的人摄入大量的碳水化合物但仍然长寿。鉴于这种可变性，我们想*推断*我们在数据中看到的关系是否足够有力。如果饮食和长寿之间没有真正的关系，我们就不会期望它们随机发生（没看懂原句）。统计学为我们提供了做出这类推断的工具，这一工具也往往被统计学以外的人视作统计学的主要目的。但正如我们将要在整本书中看到的，这种对建立在模棱两可的证据之上的非黑即白的推断的需要常常将研究人员引入歧途。
 
 Based on the data we would also like to make predictions about future outcomes.  For example, a life insurance company might want to use data about a particular person's intake of fat and carbohydrate to predict how long they are likely to live.  An important aspect of prediction is that it requires us to generalize from the data we already have to some other situation, often in the future; if our conclusions were limited to the specific people in the study at a particular time, then the study would not be very useful.  In general, researchers must assume that their particular sample is representative of a larger *population*, which requires that they obtain the sample in a way that provides an unbiased picture of the population. For example, if the PURE study had recruited all of its participants from religious sects that practice vegetarianism, then we probably wouldn't want to generalize the results to people who follow different dietary standards.
 
-## The big ideas of statistics
+有时我们还想基于这些数据对未来的结果做出预测。例如，一家人寿保险公司可能想利用某个人的脂肪和碳水化合物的摄入量来预测其寿命。预测的一个重要方面是，它要求我们从已经掌握的数据中归纳出其他情况（往往是未来的情况）；如果我们的结论仅限于研究中特定时间的特定人群，那么这项研究的作用就相当有限。通常而言，研究人员必须假设他们的特定样本能够代表更大的“总体”（*population*）。这就要求他们获取样本的方法能够无偏地反映总体。例如，如果PURE研究从奉行素食主义的宗教教派中招募了所有参与者，那么我们可能不会想把结果一般化到遵循不同饮食标准的人身上。
+
+## The big ideas of statistics 统计学的主要观念
 
 There are a number of very basic ideas that cut through nearly all aspects of statistical thinking.  Several of these are outlined by @stig in his outstanding book "The Seven Pillars of Statistical Wisdom", which I have augmented here.
 
-### Learning from data
+一些基本的观念几乎贯穿了统计思维的所有方面。@stig 在他的杰作《统计智慧的七根柱石》（The Seven Pillars of Statistical Wisdom）中概述了其中几个基本观念，而我将在下文对此做补充。
 
-One way to think of statistics is as a set of tools that enable us to learn from data.  In any situation, we start with a set of ideas or *hypotheses* about what might be the case.  In the PURE study, the researchers may have started out with the expectation that eating more fat would lead to higher death rates, given the prevailing negative dogma about saturated fats.  Later in the course we will introduce the idea of *prior knowledge*, which is meant to reflect the knowledge that we bring to a situation.  This prior knowledge can vary in its strength, often based on our amount of experience; if I visit a restaurant for the first time, I am likely to have a weak expectation of how good it will be, but if I visit a restaurant where I have eaten ten times before, my expectations will be much stronger. Similarly, if I look at a restaurant review site and see that a restaurant's average rating of four stars is only based on three reviews, I will have a weaker expectation than I would if it was based on 300 reviews.  
+### Learning from data 从数据中学习
+
+One way to think of statistics is as a set of tools that enable us to learn from data.  In any situation, we start with a set of ideas or *hypotheses* about what might be the case.  In the PURE study, the researchers may have started out with the expectation that eating more fat would lead to higher death rates, given the prevailing negative dogma about saturated fats.  Later in the course we will introduce the idea of *prior knowledge*, which is meant to reflect the knowledge that we bring to a situation.  This prior knowledge can vary in its strength, often based on our amount of experience; if I visit a restaurant for the first time, I am likely to have a weak expectation of how good it will be, but if I visit a restaurant where I have eaten ten times before, my expectations will be much stronger. Similarly, if I look at a restaurant review site and see that a restaurant's average rating of four stars is only based on three reviews, I will have a weaker expectation than I would if it was based on 300 reviews. 
+
+统计学地思考的一种方式是将统计学作为一套让我们从数据中获取知识的工具。在任何情况下，我们开始时都有一套关于可能发生的情况的想法或“假设”（*hypotheses*）。在PURE研究中，鉴于当下关于饱和脂肪的负面教条，研究人员可能一开始就期望更多的脂肪摄入量会导致更高的死亡率。在课程的后期，我们将介绍“先验知识”（*prior knowledge*）的概念，即反映我们带入情境的知识。这种先验知识的强度可能不同，通常基于我们的经验数量。我对第一次去的餐馆的好坏的期望，会弱于我对去过十次的餐馆的期望；同样，我对有3条评论的四星评级餐厅的期望也会弱于我对有300条评论的四星评级餐厅的期望。 
 
 Statistics provides us with a way to describe how new data can be best used to update our beliefs, and in this way there are deep links between statistics and psychology. In fact, many theories of human and animal learning from psychology are closely aligned with ideas from the new field of *machine learning*. Machine learning is a field at the interface of statistics and computer science that focuses on how to build computer algorithms that can learn from experience. While statistics and machine learning often try to solve the same problems, researchers from these fields often take very different approaches; the famous statistician Leo Breiman once referred to them as "The Two Cultures" to reflect how different their approaches can be [@breiman2001]. In this book I will try to blend the two cultures together because both approaches provide useful tools for thinking about data.
 
-### Aggregation
+统计学为我们提供了一种描述如何最大化地利用新数据更新我们的信念的方式。以这种方式，统计学和心理学之间存在着深刻的联系。（怪……）事实上，许多来自心理学的人类和动物学习理论与来自“机器学习”（*machine learning*）这一新领域的思想紧密相连。机器学习是统计学和计算机科学的交叉领域，主要研究如何建立从经验中学习的计算机算法。虽然统计学和机器学习经常试图解决相同的问题，但这些领域的研究人员往往采取非常不同的方法。著名的统计学家Leo Breiman曾将它们称为“两种文化”，以反映它们的方法是多么不同[@breiman2001]。在本书中，我将尝试把这两种文化融合在一起，因为这两种方法都能为思考数据提供有用的工具。
+
+### Aggregation 汇总
 
 Another way to think of statistics is as "the science of throwing away data".  In the example of the PURE study above, we took more than 100,000 numbers and condensed them into ten.  It is this kind of *aggregation* that is one of the most important concepts in statistics.  When it was first advanced, this was revolutionary: If we throw out all of the details about every one of the participants, then how can we be sure that we aren't missing something important?
 
+另一种统计学地思考的方式是“扔掉数据的科学”（the science of throwing away data）。在上面的PURE研究的例子中，我们把超过10万个的数字浓缩成10个数字。这种“汇总”（*aggregation*）正是统计学中最重要的概念之一。当它第一次被推进时，这是革命性的。如果我们扔掉每一个参与者的所有细节，那么我们怎么能确定我们没有遗漏一些重要的东西呢？
+
 As we will see, statistics provides us ways to characterize the structure of aggregates of data, with theoretical foundations that explain why this usually works well.  However, it's also important to keep in mind that aggregation can go too far, and later we will encounter cases where a summary can provide a very misleading picture of the data being summarized.
 
-### Uncertainty
+正如我们将看到的，统计学为我们提供了描述数据汇总结构的方法。其理论基础解释了为什么这通常会很有效。然而，同样需要记住的是，汇总有时会走得太远。以后我们会遇到这样的情况，即汇总为被汇总的数据提供一个非常误导的描述。
+
+### Uncertainty 不确定性
 
 The world is an uncertain place. We now know that cigarette smoking causes lung cancer, but this causation is probabilistic: A 68-year-old man who smoked two packs a day for the past 50 years and continues to smoke has a 15% (1 out of 7) risk of getting lung cancer, which is much higher than the chance of lung cancer in a nonsmoker. However, it also means that there will be many people who smoke their entire lives and never get lung cancer.  Statistics provides us with the tools to characterize uncertainty, to make decisions under uncertainty, and to make predictions whose uncertainty we can quantify.  
 
+真实世界充满了不确定性。我们现在知道，吸烟会导致肺癌，但这种因果关系是概率性的。一个68岁的男人在过去50年里每天抽两包烟，并继续吸烟，有15%（七分之一）的风险会得肺癌。这比不吸烟的人得肺癌的机会高得多。然而，这也意味着会有很多人一生都在吸烟，却从未得过肺癌。统计学为我们提供了用以描述不确定性、在不确定的情况下做出决策，以及做出带有可量化的不确定性的预测的工具。
+
 One often sees journalists write that scientific researchers have "proven" some hypothesis.  But statistical analysis can never "prove" a hypothesis, in the sense of demonstrating that it must be true (as one would in a logical or mathematical proof).  Statistics can provide us with evidence, but it's always tentative and subject to the uncertainty that is always present in the real world. 
 
-### Sampling from a population
+人们经常看到记者写道，科学研究人员已经“证明”了某些假设。但统计分析永远无法“证明”一个假设，即用于无法保证它一定是真的（就像在逻辑或数学证明中那样）。统计学可以为我们提供证据，但它总是试探性的，受制于现实世界中始终存在的不确定性。
+
+### Sampling from a population 抽样
 
 The concept of aggregation implies that we can make useful insights by collapsing across data -- but how much data do we need?  The idea of *sampling* says that we can summarize an entire population based on just a small number of samples from the population, as long as those samples are obtained in the right way.  For example, the PURE study enrolled a sample of about 135,000 people, but its goal was to provide insights about the billions of humans who make up the population from which those people were sampled. As we already discussed above, the way that the study sample is obtained is critical, as it determines how broadly we can generalize the results. Another fundamental insight about sampling is that while larger samples are always better (in terms of their ability to accurately represent the entire population), there are diminishing returns as the sample gets larger. In fact, the rate at which the benefit of larger samples decreases follows a simple mathematical rule, growing as the square root of the sample size, such that in order to double the precision of our estimate we need to quadruple the size of our sample.
 
-## Causality and statistics
+汇总的概念意味着我们可以通过整理不同的数据来获得有用的洞察——但我们需要多少数据？“抽样”（*sampling*）的概念指出，我们可以根据由总体中少量个体组成的样本来总结整体，只要这些样本是以正确的方式获得的。例如，PURE研究招收了约13.5万人的样本，但其目标是提供关于作为这一样本的总体的数十亿人类的见解。正如我们在上面已经讨论过的，研究样本的获得方式是至关重要的，因为它决定了我们能在多大程度上推广我们的结果。关于抽样的另一基本观点是，虽然更大的样本总是更好的（就其准确代表整个总体的能力而言），但随着样本越来越大，边际回报也会越来越小。事实上，大样本的好处减少的速度遵循一个简单的数学规则，即样本的好处随着样本量的平方根变化。因此，为了使我们估计的精确度增加一倍，我们需要将样本量扩大至原先的四倍。
+
+## Causality and statistics 因果关系和统计学
 
 The PURE study seemed to provide pretty strong evidence for a positive relationship between eating saturated fat and living longer, but this doesn't tell us what we really want to know: If we eat more saturated fat, will that cause us to live longer? This is because we don't know whether there is a direct causal relationship between eating saturated fat and living longer. The data are consistent with such a relationship, but they are equally consistent with some other factor causing both higher saturated fat and longer life.  For example, one might imagine that people who are richer eat more saturated fat and richer people tend to live longer, but their longer life is not necessarily due to fat intake --- it could instead be due to better health care, reduced psychological stress, better food quality, or many other factors.  The PURE study investigators tried to account for these factors, but we can't be certain that their efforts completely removed the effects of other variables.  The fact that other factors may explain the relationship between saturated fat intake and death is an example of why introductory statistics classes often teach that "correlation does not imply causation", though the renowned data visualization expert Edward Tufte has added, "but it sure is a hint."
 
+PURE研究似乎为饱和脂肪摄入量和长寿之间的正向关系提供了相当有力的证据，但这并没有告诉我们我们真正想知道的东西：如果我们摄入更多的饱和脂肪，是否会导致我们更长寿？这是因为我们不知道饱和脂肪摄入量和长寿之间是否有直接的因果关系。数据与这种关系是一致的，但它们也同样与其他一些同时导致更高饱和脂肪摄入量和更长寿的因素相一致。例如，人们可以想象，更富有的人摄入更多的饱和脂肪，而更富有的人往往更长寿。他们的长寿不一定是由于脂肪的摄入，而是由于更好的医疗保健、更少的心理压力、更好的食物质量、或许多其他因素。PURE研究的调查人员试图考虑这些因素，但我们不能确定他们的努力是否完全消除了其他变量的影响。其他因素可能解释了饱和脂肪摄入量和死亡之间的关系。这就是统计学入门课经常讲的“相关不意味着因果关系”的例子，尽管著名的数据可视化专家Edward Tufte补充说，“但它（译注：指相关关系）确实是一个（译注：对因果关系的）暗示”。
+
 Although observational research (like the PURE study) cannot conclusively demonstrate causal relations, we generally think that causation can be demonstrated using studies that experimentally control and manipulate a specific factor.  In medicine, such a study is referred to as a *randomized controlled trial* (RCT). Let's say that we wanted to do an RCT to examine whether increasing saturated fat intake increases life span.  To do this, we would sample a group of people, and then assign them to either a treatment group (which would be told to increase  their saturated fat intake) or a control group (who would be told to keep eating the same as before).  It is essential that we assign the individuals to these groups randomly. Otherwise, people who choose the treatment might be different in some way than people who choose the control group -- for example, they might be more likely to engage in other healthy behaviors as well.  We would then follow the participants over time and see how many people in each group died.  Because we randomized the participants to treatment or control groups, we can be reasonably confident that there are no other differences between the groups that would *confound* the treatment effect; however, we still can't be certain because sometimes randomization yields treatment versus control groups that _do_ vary in some important way.  Researchers often try to address these confounds using statistical analyses, but removing the influence of a confound from the data can be very difficult.
 
-A number of RCTs have examined the question of whether changing saturated fat intake results in better health and longer life.  These trials have focused on *reducing* saturated fat because of the strong dogma amongst nutrition researchers that saturated fat is deadly; most of these researchers would have probably argued that it was not ethical to cause people to eat *more* saturated fat!  However, the RCTs have shown a very consistent pattern: Overall there is no appreciable effect on death rates of reducing saturated fat intake.  
+尽管观察性研究（如PURE研究）不能最终证明因果关系，但我们通常认为，使用实验控制和操纵特定因素的研究可以证明因果关系。在医学上，这种研究被称为“随机对照试验”（*randomized controlled trial*，RCT）。比方说，我们想做一个随机对照试验来研究增加饱和脂肪的摄入是否会延长寿命。要做到这一点，我们将在人群中抽样，然后将他们分配到干预组（将被告知增加饱和脂肪的摄入量）或对照组（将被告知保持与以前一样的饮食）。我们必须将个人随机分配到这些小组。否则，干预组中的个体可能在某些方面与对照组中的个体不同——例如，他们可能更有可能从事其他健康行为。然后我们将对参与者进行长期跟踪，看看每组有多少人死亡。因为我们将参与者随机分配到干预组或对照组，所以我们可以合理地相信，各组之间不存在其他可能“混淆”（*confound*）干预效应（treatment effect）的差异。但是，我们仍然不能确定，因为有时随机化产生的干预组和对照组在某些重要方面_确实_存在差异。研究人员经常试图通过统计分析来解决这些干扰，但从数据中消除干扰的影响可能非常困难。
 
+A number of RCTs have examined the question of whether changing saturated fat intake results in better health and longer life.  These trials have focused on *reducing* saturated fat because of the strong dogma amongst nutrition researchers that saturated fat is deadly; most of these researchers would have probably argued that it was not ethical to cause people to eat *more* saturated fat!  However, the RCTs have shown a very consistent pattern: Overall there is no appreciable effect on death rates of reducing saturated fat intake.
 
+一些随机对照试验研究了改变饱和脂肪摄入量是否会带来更好的健康状况和更长的寿命的问题。这些试验的重点是*减少*饱和脂肪，因为在营养学研究者中存在着强烈的教条，认为饱和脂肪是致命的。这些研究者中的大多数可能会争辩说，让人们摄入*更多*饱和脂肪是不道德的。然而，随机对照试验显示了非常一致的模式。总体而言，减少饱和脂肪的摄入对死亡率没有明显的影响。
 
-## Learning objectives
+## Learning objectives 学习目标
 
 Having read this chapter, you should be able to:
 
+通过阅读本章，你应当能够：
+
 * Describe the central goals and fundamental concepts of statistics
+* 描述统计的中心目标和基本概念
 * Describe the difference between experimental and observational research with regard to what can be inferred about causality
+* 描述实验研究和观察性研究在因果关系推断方面的差异
 * Explain how randomization provides the ability to make inferences about causation.
+* 解释随机化如何提供推断因果关系的能力。
 
-
-## Suggested readings
+## Suggested readings 推荐阅读
 
 - *The Seven Pillars of Statistical Wisdom*, by Stephen Stigler
 - *The Lady Tasting Tea: How Statistics Revolutionized Science in the Twentieth Century*, by David Salsburg
