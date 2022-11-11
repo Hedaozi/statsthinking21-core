@@ -1,5 +1,5 @@
 book_filename: "StatsThinking21"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: ["第", "章"]
 delete_merged_file: true

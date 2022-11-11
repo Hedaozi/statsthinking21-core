@@ -1,3 +1,6 @@
 *.log
 .DS_Store
 .Rhistory
+.vscode/
+_book/
+_bookdown_files/

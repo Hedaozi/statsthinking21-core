@@ -1,0 +1,1 @@
+docker run -it -v $(pwd):/book -w /book --entrypoint="" statsthinking21:v1 make render-gitbook
