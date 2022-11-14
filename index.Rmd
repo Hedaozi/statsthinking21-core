@@ -32,7 +32,7 @@ knitr::opts_chunk$set(fig.width=6, fig.height=6, #echo=FALSE,
 
 # Preface 前言 {-}
 
-## 译者的话
+## 译者的话 {-}
 
 翻译本书的目的有二，其一为借此契机让自己通读本书，其二为为致力于学习统计学、但阅读英文书籍尚有困难的学子提供一个可读的译本。本书的源代码见于[https://github.com/Hedaozi/statsthinking21-core](https://github.com/Hedaozi/statsthinking21-core)。若有任何意见与建议，烦请邮件至 hedaozi_amoy@outlook.com，或在Github仓库留言。感激不尽。
 
