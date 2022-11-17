@@ -7,11 +7,15 @@ output:
       in_header: google_analytics.html
   html_document: default
 ---
-# Summarizing data
+# Summarizing data 总结数据
 
 I mentioned in the Introduction that one of the big discoveries of statistics is the idea that we can better understand the world by throwing away information, and that's exactly what we are doing when we summarize a dataset.
+
+在导论中，我提到总计学的一大发现即是我们可以通过扔掉信息来更好地理解世界，而这正是我们在总结数据时所做的。
+
 In this Chapter we will discuss why and how to summarize data.
 
+在这一章节中，我们将讨论如何总结数据。
 
 ```{r echo=FALSE,warning=FALSE,message=FALSE}
 library(tidyverse)
@@ -21,19 +25,27 @@ options(digits = 2)
 
 ```
 
-## Why summarize data?
+## Why summarize data? 为什么总结数据？
 
 When we summarize data, we are necessarily throwing away information, and one might plausibly object to this.  As an example, let's go back to the PURE study that we discussed in Chapter 1.  Are we not supposed to believe that all of the details about each individual matter, beyond those that are summarized in the dataset?  What about the specific details of how the data were collected, such as the time of day or the mood of the participant?  All of these details are lost when we summarize the data.
 
+在总结数据时，我们必须扔掉信息，而有些人可能会反对这一点。让我们回到第一章所讨论的PURE研究中去：那些未被包括在总结数据中的、关于每个个体的细节就不重要吗？数据如何被收集的细节，例如数据在一天中被收集的时间、参与者的情绪，也是否不重要？当我们总结数据的时候，所有这些细节都会丢失。
+
 One reason that we summarize data is that it provides us with a way to *generalize* - that is, to make general statements that extend beyond specific observations.  The importance of generalization was highlighted by the writer Jorge Luis Borges in his short story "Funes the Memorious", which describes an individual who loses the ability to forget.  Borges focuses in on the relation between generalization (i.e. throwing away data) and thinking: "To think is to forget a difference, to generalize, to abstract. In the overly replete world of Funes, there were nothing but details."  
+
+我们总结数据的原因之一在于数据总结为我们提供了一种一般化（*generalize*）的方式，即做出超出具体观察范围的一般性陈述。作家Jorge Luis Borges在他的短篇小说《Funes the Memorious》——关于一个失去遗忘的能力的人的故事——中强调了一般化的重要性。Borges将讨论聚焦在了一般化（即扔掉信息）和思考之间的关系：“思考就是忘记差异，就是一般化，就是抽象化。在Funes那过度充实的世界里，除了细节，什么都没有”。
 
 Psychologists have long studied all of the ways in which generalization is central to thinking.  One example is categorization: We are able to easily recognize different examples of the category of "birds" even though the individual examples may be very different in their surface features (such as an ostrich, a robin, and a chicken).  Importantly, generalization lets us make predictions about these individuals -- in the case of birds, we can predict that they can fly and eat seeds, and that they probably can't drive a car or speak English.  These predictions won't always be right, but they are often good enough to be useful in the world.
 
-## Summarizing data using tables
+长期以来，心理学家一直在研究一般化作为思维的中心的所有可能方式。分类是一个例子：我们能够轻易地识别出“鸟”这一类别的不同实例，尽管这些实例的表面特征可能非常不同（如鸵鸟、知更鸟和鸡）。重要的是，一般化让我们能够对这些个体做出预测——就鸟类而言，我们可以预测它们会飞、会吃种子，而不能够开车或说英语。这些预测并不总是正确的，但就有用性而言往往已经足够。
+
+## Summarizing data using tables 使用表格总结数据
 
 A simple way to summarize data is to generate a table representing counts of various types of observations.  This type of table has been used for thousands of years (see Figure \@ref(fig:salesContract)).
 
-```{r salesContract,echo=FALSE,fig.cap="A Sumerian tablet from the Louvre, showing a sales contract for a house and field.  Public domain, via Wikimedia Commons.",fig.width=4,fig.height=4,out.height='30%'}
+将各种类型的观测值的计数展示在表格中是一种简单的总结数据的方法。这种类型的表格已经被人类文明使用了数千年（见Figure \@ref(fig:salesContract)）。
+
+```{r salesContract,echo=FALSE,fig.cap="A Sumerian tablet from the Louvre, showing a sales contract for a house and field.  Public domain, via Wikimedia Commons.\n这块收藏于卢浮宫的苏美尔石碑记载了一份有关房屋和田地的销售合同。本图片属于公共版权领域，可从维基百科下载。",fig.width=4,fig.height=4,out.height='30%'}
 knitr::include_graphics("images/Sales_contract_Shuruppak_Louvre_AO3760.jpg")
 
 ```
@@ -54,9 +66,13 @@ NHANES <-
 
 Let's look at some examples of the use of tables, using a more realistic dataset.  Throughout this book we will use the [National Health and Nutrition Examination Survey (NHANES)](https://www.cdc.gov/nchs/nhanes/index.htm) dataset.  This is an ongoing study that assesses the health and nutrition status of a sample of individuals from the United States on many different variables.  We will use a version of the dataset that is available for the R statistical software package.   For this example, we will look at a simple variable, called *PhysActive* in the dataset.  This variable contains one of three different values: "Yes" or "No" (indicating whether or not the person reports doing "moderate or vigorous-intensity sports, fitness or recreational activities"), or "NA" if the data are missing for that individual. There are different reasons that the data might be missing; for example, this question was not asked of children younger than 12 years of age, while in other cases an adult may have declined to answer the question during the interview, or the interviewer's recording of the answer on their form might be unreadable. 
 
-### Frequency distributions  {#frequency-distributions}
+下文将展示一些基于[国家健康与营养调查（National Health and Nutrition Examination Survey，NHANES）](https://www.cdc.gov/nchs/nhanes/index.htm)数据集的表格使用例子。该数据集也将被作为贯穿本书的例子使用。这项调查目前仍在进行中，旨在评估美国人的健康和营养状况，包含许多变量。我们将使用一个可以通过R语言的包获取的数据版本。在本例中，我们将使用数据集中的`PhysActive`变量。该变量包含三个可能的取值：Yes、No（受访者是否报告进行了“中等或剧烈强度的运动、健身或娱乐活动”），或者NA（受访者数据缺失）。数据缺失可能有不同的原因：例如，12岁以下的儿童不会被问到这个问题，而成年人则可能在调查过程中拒绝回答这个问题，又如受访者在其表格上记录的答案无法阅读。
+
+### Frequency distributions 频率分布 {#frequency-distributions}
 
 A *distribution* describes how data are divided between different possible values. For this example, let's look at how many people fall into each of the physical activity categories.
+
+分布（*distribution*）描述了数据如何在不同可能取值之间划分。下表展示了`PhysActive`变量的不同取值的频数。
 
 ```{r MakePhysActiveTable, echo=FALSE, warning=FALSE}
 # summarize physical activity data
@@ -64,23 +80,34 @@ A *distribution* describes how data are divided between different possible value
 PhysActive_table <- NHANES %>%
   dplyr::select(PhysActive) %>% # select the variable
   group_by(PhysActive) %>% # group by values of the variable
-  summarize(AbsoluteFrequency = n()) # count the values
+  summarize(`AbsoluteFrequency 频数` = n()) # count the values
 
 ```
 
 ```{r PhysActiveTable, echo=FALSE}
 
-kable(PhysActive_table, digits=3, caption='Frequency distribution for PhysActive variable')
+kable(PhysActive_table, digits=3, caption='Frequency distribution for PhysActive variable\n`PhysActive`变量的频数分布')
 ```
 
 Table \@ref(tab:PhysActiveTable) shows the frequencies of each of the different values; there were `r I(PhysActive_table %>% subset(PhysActive=='No') %>% dplyr::select(AbsoluteFrequency))` individuals who responded "No" to the question, `r I(PhysActive_table %>% subset(PhysActive=='Yes') %>% dplyr::select(AbsoluteFrequency))` who responded "Yes", and `r I(PhysActive_table %>% subset(is.na(PhysActive)) %>% dplyr::select(AbsoluteFrequency))` for whom no response was given.  We call this a *frequency distribution* because it tells us how frequent each of the possible values is within our sample.
 
+Table \@ref(tab:PhysActiveTable)展示了不同数值的频数：`r I(PhysActive_table %>% subset(PhysActive=='Yes') %>% dplyr::select(AbsoluteFrequency))`人选择了“Yes”，`r I(PhysActive_table %>% subset(PhysActive=='No') %>% dplyr::select(AbsoluteFrequency))`人选择了“No”，而`r I(PhysActive_table %>% subset(is.na(PhysActive)) %>% dplyr::select(AbsoluteFrequency))`人没有回答。我们将这称为“频数分布”（*frequency distribution*）。频数分布给出了每个可能的取值在样本中出现的频数。
+
 This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying "Yes" than "No", but it can be hard to tell from absolute numbers how big the difference is in relative terms.  For this reason, we often would rather present the data using *relative frequency*, which is obtained by dividing each frequency by the sum of all frequencies:
+
+上表给出了所有回答的人中，回答“Yes”和回答“No”的频数。我们可以说，回答“Yes”的人比回答“No”的人更多，但从频数中很难看出相对差异的大小。因此，我们通常更愿意使用“频率”（*relative frequency*）。频率可通过单个取值的频数除以总频数得到：
 
 $$
 relative\ frequency_i = \frac{absolute\ frequency_i}{\sum_{j=1}^N absolute\ frequency_j}
 $$
+
+$$
+频率_i = \frac{频数_i}{\sum_{j=1}^N 频数_j}
+$$
+
 The relative frequency provides a much easier way to see how big the imbalance is.  We can also interpret the relative frequencies as percentages by multiplying them by 100. In this example, we will drop the NA values as well, since we would like to be able to interpret the relative frequencies of active versus inactive people.  However, for this to make sense we have to assume that the NA values are missing "at random", meaning that their presence or absence is not related to the true value of the variable for that person.  For example, if inactive participants were more likely to refuse to answer the question than active participants, then that would *bias* our estimate of the frequency of physical activity, meaning that our estimate would be different from the true value.
+
+相比频数，频率更直观地给出了可能取值间的不平衡的大小。我们也可以将频率乘以100得到百分比。在本例中，出于计算活跃人群与不活跃人群的频率的目的，我们排除了缺失值NA。然而，为保证结论是有意义的，我们必须假设NA值是“随机”（at random）缺失的，即是否缺失与变量真实的取值无关。例如，如果不活跃的参与者相比活跃的财渔者更有可能拒绝回答该问题，那么这将使我们对频率的估计发生频移，从而使得估计值与真实值不相符合。
 
 ```{r echo=FALSE}
 # compute percentages for physical activity categories
@@ -89,28 +116,32 @@ PhysActive_table_filtered <- NHANES %>%
   drop_na(PhysActive) %>%
   dplyr::select(PhysActive) %>%
   group_by(PhysActive) %>%
-  summarize(AbsoluteFrequency = n()) %>%
+  summarize(`AbsoluteFrequency 频数` = n()) %>%
   mutate(
-    RelativeFrequency = AbsoluteFrequency / sum(AbsoluteFrequency),
-    Percentage = RelativeFrequency * 100
+    `RelativeFrequency 频率` = `AbsoluteFrequency 频数` / sum(`AbsoluteFrequency 频数`),
+    `Percentage 百分比` = `RelativeFrequency 频率` * 100
   )
 
 ```
 
 ```{r PhysActiveTableFiltered, echo=FALSE}
-kable(PhysActive_table_filtered, caption='Absolute and relative frequencies and percentages for PhysActive variable')
+kable(PhysActive_table_filtered, caption='Absolute and relative frequencies and percentages for PhysActive variable\n`PhysActive`变量的频数、频率与百分比')
 
 ```
 
 Table \@ref(tab:PhysActiveTableFiltered) lets us see that `r formatC(I(PhysActive_table_filtered %>% subset(PhysActive=='No') %>% dplyr::select(Percentage) %>% pull()), digits=1, format='f')` percent of the individuals in the NHANES sample said "No" and `r formatC(I(PhysActive_table_filtered %>% subset(PhysActive=='Yes') %>% dplyr::select(Percentage) %>% pull()), digits=1, format='f')` percent said "Yes".
 
-### Cumulative distributions {#cumulative-distributions}
+Table \@ref(tab:PhysActiveTableFiltered)表明，45.4%的受访者回答了“No”，而54.6%的受访者回答了“Yes”。
+
+### Cumulative distributions 累积分布 {#cumulative-distributions}
 
 The *PhysActive* variable that we examined above only had two possible values, but often we wish to summarize data that can have many more possible values. When those values are quantitative, then one useful way to summarize them is via what we call a *cumulative* frequency representation: rather than asking how many observations take on a specific value, we ask how many have a value some specific value *or less*.  
 
+上述讨论的`PhysActive`变量只有两个可能的取值，但我们总结数据时往往面对的是有很多可能取值的变量。当这一变量为定量变量时，使用累积分布（*cumulative* frequency）就十分有用：此时，比起计算每个取值上有多少个观测，我们更倾向于计算小于或等于某个值的观测数。
+
 Let's look at another variable in the NHANES dataset, called *SleepHrsNight* which records how many hours the participant reports sleeping on usual weekdays.  Table \@ref(tab:sleepTable) shows a frequency table created as we did above, after removing anyone with missing data for this question. We can already begin to summarize the dataset just by looking at the table; for example, we can see that most people report sleeping between 6 and 8 hours.  To see this even more clearly, we can plot a *histogram* which shows the number of cases having each of the different values; see left panel of Figure \@ref(fig:sleepHist). We can also plot the relative frequencies, which we will often refer to as *densities* - see the right panel of Figure \@ref(fig:sleepHist).
 
-
+NHANES数据集中的另一个变量`SleepHrsNight`记录了受访者报告的工作日睡眠时长（单位：小时）。Table \@ref(tab:sleepTable)展示了剔除缺失值后的频数与频率分布。由表可知，大多数人的睡眠时间在6至8小时之间。我们可以绘制展示各取值上观测数的直方图（*histogram*）以便更清晰地看到这一发现，如Figure \@ref(fig:sleepHist)（左）所示。我们也可以绘制频率（在这里更通常被称为“密度”（*densities*））直方图，如Figure \@ref(fig:sleepHist)（右）所示。
 
 ```{r echo=FALSE}
 # create summary table for relative frequency of different
@@ -120,16 +151,16 @@ sleepTable <- NHANES %>%
   drop_na(SleepHrsNight) %>%
   dplyr::select(SleepHrsNight) %>% 
   group_by(SleepHrsNight) %>%
-  summarize(AbsoluteFrequency = n()) %>%
+  summarize(`AbsoluteFrequency 频数` = n()) %>%
   mutate(
-    RelativeFrequency = AbsoluteFrequency / sum(AbsoluteFrequency),
-    Percentage = RelativeFrequency * 100
+    `RelativeFrequency 频率` = `AbsoluteFrequency 频数` / sum(`AbsoluteFrequency 频数`),
+    `Percentage 百分比` = `RelativeFrequency 频率` * 100
   )
 
 ```
 
 ```{r sleepTable, echo=FALSE}
-kable(sleepTable, caption='Frequency distribution for number of hours of sleep per night in the NHANES dataset')
+kable(sleepTable, caption='Frequency distribution for number of hours of sleep per night in the NHANES dataset \n 睡眠时间在调查人群中的频数与频率分布（单位：小时；数据来源：NHANES数据集）')
 ```
 
 
@@ -152,12 +183,14 @@ scalex <-
 p1 <- SleepHrsNight_data_filtered %>% 
   ggplot(aes(SleepHrsNight)) +
   geom_histogram(binwidth = 1) +
-  scalex
+  scalex +
+  ylab("count 计数")
 
 p2 <- SleepHrsNight_data_filtered %>% 
   ggplot(aes(SleepHrsNight)) +
   geom_histogram(aes(y = ..density..), binwidth = 1) +
-  scalex
+  scalex +
+  ylab("density 密度")
 
 plot_grid(p1,p2)
 ```
@@ -165,8 +198,14 @@ plot_grid(p1,p2)
 
 What if we want to know how many people report sleeping 5 hours or less?  To find this, we can compute a *cumulative distribution*.  To compute the cumulative frequency for some value j, we add up the frequencies for all of the values up to and including j:
 
+如果我们想知道有多少人睡眠时间小于等于5小时，那么该怎么办呢？我们可以通过计算累积分布（*cumulative distribution*）达到这一目的。值$j$的累积频次等于小于等于$j$的值的频数之和：
+
 $$
 cumulative\ frequency_j = \sum_{i=1}^{j}{absolute\ frequency_i}
+$$
+
+$$
+累积频次_j = \sum_{i=1}^{j}{频次_i}
 $$
 
 ```{r echo=FALSE}
@@ -177,19 +216,21 @@ SleepHrsNight_cumulative <-
   drop_na(SleepHrsNight) %>%
   dplyr::select(SleepHrsNight) %>%
   group_by(SleepHrsNight) %>%
-  summarize(AbsoluteFrequency = n()) %>%
-  mutate(CumulativeFrequency = cumsum(AbsoluteFrequency))
+  summarize(`AbsoluteFrequency 频次` = n()) %>%
+  mutate(`CumulativeFrequency 累积频次` = cumsum(`AbsoluteFrequency 频次`))
 
 ```
 \newpage
 ```{r echo=FALSE}
-kable(SleepHrsNight_cumulative, caption='Absolute and cumulative frequency distributions for SleepHrsNight variable')
+kable(SleepHrsNight_cumulative, caption='Absolute and cumulative frequency distributions for SleepHrsNight variable\n`SleepHrsNight`变量的频次与累积频次分布')
 
 ```
 
 Let's do this for our sleep variable, computing the absolute and cumulative frequency. In the left panel of Figure \@ref(fig:sleepAbsCumulRelFreq) we plot the data to see what these representations look like; the absolute frequency values are plotted in solid lines, and the cumulative frequencies are plotted in dashed lines We see that the cumulative frequency is *monotonically increasing* -- that is, it can only go up or stay constant, but it can never decrease.  Again, we usually find the relative frequencies to be more useful than the absolute; those are plotted in the right panel of Figure \@ref(fig:sleepAbsCumulRelFreq).  Importantly, the shape of the relative frequency plot is exactly the same as the absolute frequency plot -- only the size of the values has changed.
 
-```{r sleepAbsCumulRelFreq,echo=FALSE,fig.cap="A plot of the relative (solid) and cumulative relative (dashed) values for frequency (left) and proportion (right) for the possible values of SleepHrsNight.",fig.width=8,fig.height=4,out.height='33%'}
+我们计算了睡眠时间变量的频次和累积频次，并将之绘制在Figure \@ref(fig:sleepAbsCumulRelFreq)（左）中。频次以实线表示，而累积频次以虚线表示。由图可见，累积频次是单调上升的（*monotonically increasing*）——即只能上升或不变，但永远不会下降。同样，频率通常比频次更有用。频率被绘制在Figure \@ref(fig:sleepAbsCumulRelFreq)（右）中。频率图形和频次图形的形状是完全不一样的，只是值的大小发生了变化。
+
+```{r sleepAbsCumulRelFreq,echo=FALSE,fig.cap="A plot of the relative (solid) and cumulative relative (dashed) values for frequency (left) and proportion (right) for the possible values of SleepHrsNight.\n`SleepHrsNight`变量可能取值的频次（左，实线）与比例（右，实线）及其累积值（虚线）。",fig.width=8,fig.height=4,out.height='33%'}
 
 p1 <- SleepHrsNight_cumulative %>% 
   ggplot(aes(SleepHrsNight, AbsoluteFrequency)) +
@@ -200,7 +241,7 @@ p1 <- SleepHrsNight_cumulative %>%
     size = 1.25
   ) +
   scalex +
-  labs(y = "Frequency")
+  ylab("Frequency 频次")
 
 SleepHrsNight_cumulative <- 
   NHANES %>%
@@ -221,29 +262,31 @@ p2 <- SleepHrsNight_cumulative %>%
     linetype = "dashed",
     size = 1.25) +
   scalex +
-  labs(
-    y = "Proportion"
-  )
+  ylab("Proportion 比例")
 
 plot_grid(p1,p2)
 ```
 
 
-### Plotting histograms {#plotting-histograms}
+### Plotting histograms 绘制直方图 {#plotting-histograms}
 
-```{r ageHist,echo=FALSE,fig.cap="A histogram of the Age (left) and Height (right) variables in NHANES.",fig.width=8,fig.height=4,out.height='33%'}
+```{r ageHist,echo=FALSE,fig.cap="A histogram of the Age (left) and Height (right) variables in NHANES.\nNHANES数据集中的年龄（左）与身高（右）变量直方图",fig.width=8,fig.height=4,out.height='33%'}
 
 p1 <- NHANES %>% 
   ggplot(aes(Age)) +
   geom_histogram(binwidth = 1) +
-  ggtitle('Age')
+  xlab("Age 年龄") +
+  ylab("count 计数") +
+  ggtitle('Age 年龄')
 
 p2 <- NHANES %>% 
   select(Height) %>% 
   drop_na() %>% 
   ggplot(aes(Height)) +
   geom_histogram(aes(y = ..density..), binwidth = 1) +
-  ggtitle('Height')
+  xlab("Height 身高") +
+  ylab("density 密度") +
+  ggtitle('Height 身高')
 
 plot_grid(p1,p2)
 
@@ -251,13 +294,21 @@ plot_grid(p1,p2)
 
 The variables that we examined above were fairly simple, having only a few possible values. Now let's look at a more complex variable: Age.  First let's plot the *Age* variable for all of the individuals in the NHANES dataset (see left panel of Figure \@ref(fig:ageHist)). What do you see there?  First, you should notice that the number of individuals in each age group is declining over time.  This makes sense because the population is being randomly sampled, and thus death over time leads to fewer people in the older age ranges.  Second, you probably notice a large spike in the graph at age 80.  What do you think that's about?  
 
+上述讨论的变量较为简单，只有几个可能取值。下列将讨论年龄这一更复杂的变量。首先，我们绘制了NHANES数据集中所有个体的`Age`变量取值（见Figure \@ref(fig:ageHist)（左））。首先，随着时间推移，各年龄组的人数在下降。由于人口是随机抽样的，这是有意义的，意味着随着时间推移，死亡会导致老年人口组的人口数量减少。其次，80岁这一取值上出现了图表中的峰值，这是为什么？
+
 If were were to look up the information about the NHANES dataset, we would see the following definition for the *Age* variable: "Age in years at screening of study participant. Note: Subjects 80 years or older were recorded as 80." The reason for this is that the relatively small number of individuals with very high ages would make it potentially easier to identify the specific person in the dataset if you knew their exact age;  researchers generally promise their participants to keep their identity confidential, and this is one of the things they can do to help protect their research subjects.  This also highlights the fact that it's always important to know where one's data have come from and how they have been processed; otherwise we might interpret them improperly, thinking that 80-year-olds had been somehow overrepresented in the sample.
+
+NHANES数据集的信息给出了`Age`变量的定义：“受访者参与调查时的年龄。注意：80岁或以上的受访者被记录为80岁。”这样处理的原因在于，如果你知道受访者的确切年龄，那么数据集中人数相对较少的高龄个体可能会更容易被识别为特定的人。研究人员通常会承诺受访者保密他们的身份，而这一处理是可以达成保护受访者这一承诺的事情之一。这也突出了了解数据如何被采集以及被处理的重要性，否则我们可能会错误地解释数据，认为80岁的受访者在样本中的比例过高。
 
 Let's look at another more complex variable in the NHANES dataset: Height. The histogram of height values is plotted in the right panel of Figure \@ref(fig:ageHist). The first thing you should notice about this distribution is that most of its density is centered around about 170 cm, but the distribution has a "tail" on the left; there are a small number of individuals with much smaller heights. What do you think is going on here?
 
+接着，我们将处理NHANES中的一个更复杂的变量——身高`Height`。Figure \@ref(fig:ageHist)（右）绘制了身高变量的直方图。首先，由分布可见，它的大部分密度集中在170cm附近，但该分布在左侧有一个“尾”（tail）。有少数受访者的身高要小得多。你认为这是为什么？
+
 You may have intuited that the small heights are coming from the children in the dataset.  One way to examine this is to plot the histogram with separate colors for children and adults (left panel of Figure \@ref(fig:heightHistSep)). This shows that all of the very short heights were indeed coming from children in the sample. Let's create a new version of NHANES that only includes adults, and then plot the histogram just for them (right panel of Figure \@ref(fig:heightHistSep)).  In that plot the distribution looks much more symmetric.  As we will see later, this is a nice example of a *normal* (or *Gaussian*) distribution.  
 
-```{r heightHistSep,echo=FALSE,fig.cap="Histogram of heights for NHANES. A: values plotted separately for children (gray) and adults (black).  B: values for adults only. C: Same as B, but with bin width = 0.1",fig.width=8,fig.height=8,out.height='50%'}
+你或许已经猜测到这小部分受访者是数据集中的孩子。将儿童和成人以不同的颜色区分绘制直方图可以用来检验猜测（如Figure \@ref(fig:heightHistSep)（左）所示）。
+
+```{r heightHistSep,echo=FALSE,fig.cap="Histogram of heights for NHANES. A: values plotted separately for children (gray) and adults (black).  B: values for adults only. C: Same as B, but with bin width = 0.1\nNHANES数据集身高变量直方图。A：儿童（灰色）和成人（黑色）分别绘制；B：仅成人；C：仅成人，间隔宽度为0.1。",fig.width=8,fig.height=8,out.height='50%'}
 
 # first create a new variable in NHANES that tell us whether
 # each individual is a child
@@ -278,27 +329,32 @@ p1 <- NHANES %>%
   scale_fill_grey() +
   geom_histogram(aes(y = ..density..), binwidth = 1) +
   theme(legend.position = c(0,0.8)) +
-  ggtitle('A: All individuals')
+  ggtitle('A: All individuals 所有受访者') +
+  xlab('Height 身高') +
+  ylab('density 密度') +
+  labs(fill = 'isChild 儿童')
 
 p2 <- NHANES_adult %>%
   ggplot(aes(Height)) +
   geom_histogram(aes(y = ..density..), binwidth = 1) +
-  ggtitle('B: Adults only')
+  ggtitle('B: Adults only 仅成人')
 
 
 p3 <- NHANES_adult %>% 
   drop_na(Height) %>% 
   ggplot(aes(Height)) +
   geom_histogram(aes(y = ..density..), binwidth = .1) +
-  ggtitle('C: Adults only (bin width=.1)')
+  ggtitle('C: Adults only 仅成人(bin width=.1 间隔宽度=0.1)')
 
 plot_grid(p1,p2,p3,ncol=2)
 
 ```
 
-### Histogram bins
+### Histogram bins 直方图间隔
 
 In our earlier example with the sleep variable, the data were reported in whole numbers, and we simply counted the number of people who reported each possible value. However, if you look at a few values of the Height variable in NHANES (as shown in Table \@ref(tab:heightVals)), you will see that it was measured in centimeters down to the first decimal place.
+
+在前文关于睡眠变量的例子中，变量取值都是整数，而我们仅计算了每个可能取值的人数。然而，身高变量（如Table \@ref(tab:heightVals)所示）则是以厘米为单位、以一位小数为精度。
 
 ```{r heightVals, echo=FALSE}
 # take a slice of a few values from the full data frame
@@ -306,26 +362,40 @@ nhanes_slice <- NHANES_adult %>%
   dplyr::select(Height) %>%
   slice(45:50) 
 
-kable(nhanes_slice %>% mutate(Height=formatC(Height, digits=1, format='f')), caption='A few values of Height from the NHANES data frame.', digits=1)
+kable(nhanes_slice %>% mutate(Height=formatC(Height, digits=1, format='f')), caption='A few values of Height from the NHANES data frame.\nNHANES数据集中`Height`变量的部分取值', digits=1)
 ```
 
 Panel C of Figure \@ref(fig:heightHistSep) shows a histogram that counts the density of each possible value down the first decimal place. That histogram looks really jagged, which is because of the variability in specific decimal place values.  For example, the value 173.2 occurs `r I(sum(NHANES_adult$Height==173.2,na.rm=TRUE))` times, while the value 173.3 only occurs `r I(sum(NHANES_adult$Height==173.3,na.rm=TRUE))` times. We probably don't think that there is really such a big difference between the prevalence of these two heights; more likely this is just due to random variability in our sample of people.  
 
+Figure \@ref(fig:heightHistSep)（图C）展示了`Height`变量在0.1cm精度下每个可能取值的密度。由于值在给定小数位上的变异性，该直方图看起来非常参差不齐。例如，数值173.2出现了32次，而数值173.3只出现了15次。这两个高度的普遍性之间可能并不是真的有这么大的差异。这一现象更有可能的原因是样本的随即变异性。
+
 In general, when we create a histogram of data that are continuous or where there are many possible values, we will *bin* the values so that instead of counting and plotting the frequency of every specific value, we count and plot the frequency of values falling within specific ranges.  That's why the plot looked less jagged above in Panel B of \@ref(fig:heightHistSep); in this panel we set the bin width to 1, which means that the histogram is computed by combining values within bins with a width of one; thus, the values 1.3, 1.5, and 1.6 would all count toward the frequency of the same bin, which would span from values equal to one up through values less than 2.  
 
+一般来说，当我们为连续的、或有许多可能取值的数据绘制直方图时，我们将把数值放到不同的间隔（*bin*）中。因此，我们不是计算和绘制每个给定值的频率，而是计算和绘制属于给定范围的值的频率。这就是为什么在Figure \@ref(fig:heightHistSep)（图B）中，图形相对而言没有那么参差不齐。在该直方图中，我们将间隔宽度设置为1。这意味着直方图基于合并宽度为1的间隔中的值生成。因此，1.3、1.5和1.6都会被放入同一个间隔中，这个间隔将包括大于等于1且小于2的所有值。
+
 Note that once the bin size has been selected, then the number of bins is determined by the data:
+
+请注意，一旦选择了间隔宽度，那么间隔的数量就由数据决定。
 
 $$
 number\, of\, bins  = \frac{range\, of\, scores}{bin\, width}
 $$
 
+$$
+间隔数量  = \frac{取值范围}{间隔宽度}
+$$
+
 There is no hard and fast rule for how to choose the optimal bin width.  Occasionally it will be obvious (as when there are only a few possible values), but in many cases it would require trial and error.  There are methods that try to find an optimal bin size automatically, such as the Freedman-Diaconis method that we will use in some later examples.
 
-## Idealized representations of distributions
+最佳间隔宽度的选择并不遵从一个硬性规定。有时候最佳宽度很明显（例如只有几个可能的值时），但更多时候，这需要试错。有些方法可以帮助我们找到一个最佳的间隔宽度，例如我们将在后文的一些例子中使用的Freedman-Diaconis方法。
+
+## Idealized representations of distributions 分布的理想化表示
 
 Datasets are like snowflakes, in that every one is different, but nonetheless there are patterns that one often sees in different types of data.  This allows us to use idealized representations of the data to further summarize them.  Let's take the adult height data plotted in \@ref(fig:heightHistSep), and plot them alongside a very different variable: pulse rate (heartbeats per minute), also measured in NHANES (see Figure \@ref(fig:NormalDistPlotsWithDist)).
 
-```{r NormalDistPlotsWithDist, echo=FALSE,fig.cap='Histograms for height (left) and pulse (right) in the NHANES dataset, with the normal distribution overlaid for each dataset.',fig.width=8,fig.height=4,out.height='50%'}
+数据集有如雪花，每一片都不同。尽管如此，人们还是经常在不同类型的数据中发现一些模式。这使得我们可以使用数据的理想化表示法来进一步总结它们。让我们把绘制在Figure \@ref(fig:heightHistSep)中的成人身高数据，与NHANES中的脉搏率（每分钟心跳数）数据一起，绘制在Figure \@ref(fig:NormalDistPlotsWithDist)中。
+
+```{r NormalDistPlotsWithDist, echo=FALSE,fig.cap='Histograms for height (left) and pulse (right) in the NHANES dataset, with the normal distribution overlaid for each dataset.\nNHANES数据集中身高（左）和脉搏（右）变量的直方图及其正态分布曲线',fig.width=8,fig.height=4,out.height='50%'}
 # first update the summary to include the mean and standard deviation of each 
 # dataset
 
@@ -390,7 +460,9 @@ h1 <-
     aes(x = x, y = y), 
     color = "blue", 
     size = 1.2
-  )
+  ) +
+  xlab("Height 身高") +
+  ylab("density 密度")
 
 h2 <- 
   NHANES_adult %>% 
@@ -405,7 +477,9 @@ h2 <-
     aes(x = x, y = y), 
     color = "blue", 
     size = 1.2
-  )
+  ) +
+  xlab("Pulse 脉搏") +
+  ylab("density 密度")
 
 plot_grid(h1, h2)
 
@@ -413,15 +487,23 @@ plot_grid(h1, h2)
 
 While these plots certainly don't look exactly the same, both have the general characteristic of being relatively symmetric around a rounded peak in the middle.  This shape is in fact one of the commonly observed shapes of distributions when we collect data, which we call the *normal* (or *Gaussian*) distribution.  This distribution is defined in terms of two values (which we call *parameters* of the distribution): the location of the center peak (which we call the *mean*) and the width of the distribution (which is described in terms of a parameter called the *standard deviation*). Figure \@ref(fig:NormalDistPlotsWithDist) shows the appropriate normal distribution plotted on top of each of the histrograms.You can see that although the curves don't fit the data exactly, they do a pretty good job of characterizing the distribution -- with just two numbers! 
 
+虽然这些图看起来并不完全一样，但二者都有一个普遍的特点：图形基本是围绕着中间的一个圆滑峰值对称的。实际上，这一形状是收集数据时通常观察到的分布形状之一，被称为正态（或高斯）分布。这种分布由两个值（即分布的参数（*parameters*））定义：中心峰值的位置（即均值（*mean*））和分布的宽度（由标准差（*standard deviation*）描述）。Figure \@ref(fig:NormalDistPlotsWithDist)展示了每幅直方图的适当的正态分布曲线。尽管这些曲线并不完全符合数据，但它们在描述分布特征方面做得相当好——只用了两个数字！
+
 As we will see later when we discuss the central limit theorem, there is a deep mathematical reason why many variables in the world exhibit the form of a normal distribution. 
 
-### Skewness
+正如我们将要讨论的中心极限定理所指出的，世界上许多变量呈现出正态分布的形式是有其深刻的数学原因的。
+
+### Skewness 偏态
 
 The examples in Figure \@ref(fig:NormalDistPlotsWithDist) followed the normal distribution fairly well, but in many cases the data will deviate in a systematic way from the normal distribution. One way in which the data can deviate is when they are asymmetric, such that one tail of the distribution is more dense than the other. We refer to this as "skewness".  Skewness commonly occurs when the measurement is constrained to be non-negative, such as when we are counting things or measuring elapsed times (and thus the variable can't take on negative values).  
 
+Figure \@ref(fig:NormalDistPlotsWithDist)中的例子相当好地遵循了正态分布。但在许多情况下，数据会系统性地偏离正态分布。数据偏离的一种方式是不对称，如分布的一个尾比另一个尾更密集。偏离的程度被称为偏态（"skewness"）。偏态通常发生在测量被限制为非负值的情况下，比如我们计数事物或测量经过的时间时（变量不能取负值）。
+
 An example of relatively mild skewness can be seen in the average waiting times at the airport security lines at San Francisco International Airport, plotted in the left panel of Figure \@ref(fig:SFOWaitTimes). You can see that while most wait times are less than 20 minutes, there are a number of cases where they are much longer, over 60 minutes!  This is an example of a "right-skewed" distribution, where the right tail is longer than the left; these are common when looking at counts or measured times, which can't be less than zero.  It's less common to see "left-skewed" distributions, but they can occur, for example when looking at fractional values that can't take a value greater than one.
 
-```{r SFOWaitTimes,echo=FALSE,fig.cap="Examples of right-skewed and long-tailed distributions.  Left: Average wait times for security at SFO Terminal A (Jan-Oct 2017), obtained from https://awt.cbp.gov/ .  Right: A histogram of the number of Facebook friends amongst 3,663 individuals, obtained from the Stanford Large Network Database. The person with the maximum number of friends is indicated by the diamond.",fig.width=8,fig.height=4,out.height='50%', message=FALSE,warning=FALSE}
+旧金山国际机场的机场安检线的平均等待时间是一个相对温和的偏态的例子（如Figure \@ref(fig:SFOWaitTimes)（左）所示）。虽然大多数等待时间少于20分钟，但有些时候等待时间要长得多（超过60分钟！）。这是一个右偏（"right-skewed"）的例子，即右尾比左尾长。右偏在观察计数或测量时间时很常见，因为这些变量不能小于0。尽管可能性较小，但左偏（"left-skewed"）分布也时有发生，例如观察不能大于1的变量的时候。
+
+```{r SFOWaitTimes,echo=FALSE,fig.cap="Examples of right-skewed and long-tailed distributions.  Left: Average wait times for security at SFO Terminal A (Jan-Oct 2017), obtained from https://awt.cbp.gov/ .  Right: A histogram of the number of Facebook friends amongst 3,663 individuals, obtained from the Stanford Large Network Database. The person with the maximum number of friends is indicated by the diamond.\n右偏分布与长尾分布的例子。左图：旧金山国际机场的机场安检线的平均等待时间（2017年1月至10月），数据来源：https://awt.cbp.gov/。右图：Facebook好友数量（3663人），数据来源：斯坦福大型网络数据库（Stanford Large Network Database）；菱形表示拥有最大数量朋友的人。",fig.width=8,fig.height=4,out.height='50%', message=FALSE,warning=FALSE}
 
 waittimes <- 
   read_csv("data/04/sfo_wait_times_2017.csv")
@@ -437,44 +519,62 @@ fbdata <-
 friends_table <- 
   fbdata %>%
   group_by(V1) %>%
-  summarize(nfriends = n())
+  summarize(nfriends = n()) +
+  xlab("waittime 等待时间") +
+  ylab("count 计数") 
 
 p2 <- friends_table %>% 
   ggplot(aes(nfriends)) +
   geom_histogram(aes(y = ..density..), binwidth = 2) +
-  xlab("Number of friends") +
+  xlab("Number of friends 朋友数量") +
+  ylab("density 密度") +
   annotate(
     "point", 
     x = max(friends_table$nfriends), 
     y = 0, shape=18, 
     size = 4
   )
+
 plot_grid(p1,p2)
 ```
 
 
 
-### Long-tailed distributions
+### Long-tailed distributions 长尾分布
 
-Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are "long-tailed", meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed.  One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks.  For an example, let's look at the Facebook friend data from the [Stanford Large Network Database](https://snap.stanford.edu/data/egonets-Facebook.html) and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure \@ref(fig:SFOWaitTimes)). As we can see, this distribution has a very long right tail -- the average person has `r I(mean(friends_table$nfriends))` friends, while the person with the most friends (denoted by the blue dot) has `r I(max(friends_table$nfriends))`!  
+Historically, statistics has focused heavily on data that are normally distributed, but there are many data types that look nothing like the normal distribution. In particular, many real-world distributions are "long-tailed", meaning that the right tail extends far beyond the most typical members of the distribution; that is, they are extremely skewed.  One of the most interesting types of data where long-tailed distributions occur arises from the analysis of social networks. For an example, let's look at the Facebook friend data from the [Stanford Large Network Database](https://snap.stanford.edu/data/egonets-Facebook.html) and plot the histogram of number of friends across the 3,663 people in the database (see right panel of Figure \@ref(fig:SFOWaitTimes)). As we can see, this distribution has a very long right tail -- the average person has `r I(mean(friends_table$nfriends))` friends, while the person with the most friends (denoted by the blue dot) has `r I(max(friends_table$nfriends))`!
+
+历史上，统计学主要关注正态分布的数据，但有许多数据类型与正态分布截然不同。特别地，许多现实世界的分布是长尾的（"long-tailed"）。长尾意味着右尾远远超出了分布中最典型的成员，即分布极其偏斜。长尾分布最有趣的数据类型之一来自于对社会网络的分析。Figure \@ref(fig:SFOWaitTimes)（右）展示了3663人的Facebook好友数量直方图，该数据来源于[斯坦福大型网络数据库（Stanford Large Network Database）](https://snap.stanford.edu/data/egonets-Facebook.html)。我们可以看到，这个分布的右尾非常长——人均好友数为`r I(mean(friends_table$nfriends))`，而拥有最多朋友的人（以蓝色的点表示）拥有`r I(max(friends_table$nfriends))`个好友！
 
 Long-tailed distributions are increasingly being recognized in the real world.  In particular, many features of complex systems are characterized by these distributions, from the frequency of words in text, to the number of flights in and out of different airports, to the connectivity of brain networks.  There are a number of different ways that long-tailed distributions can come about, but a common one occurs in cases of the so-called "Matthew effect" from the Christian Bible:
 
+长尾效应在现实世界中越来越被认可。特别是，复杂系统的许多特征都遵从长尾分布：从文本中的单词频率，到进出不同机场的航班数量，再到大脑网络的连接。长尾分布有许多不同的产生方式，其中一个常见的方式即出现在所谓“马太效应”的案例中：
+
 > For to every one who has will more be given, and he will have abundance; but from him who has not, even what he has will be taken away. — Matthew 25:29, Revised Standard Version
+凡有的，还要加倍给他，叫他多余；没有的，连他所有的也要夺过来。
 
 This is often paraphrased as "the rich get richer".  In these situations, advantages compound, such that those with more friends have access to even more new friends, and those with more money have the ability to do things that increase their riches even more.  
 
+“马太效应”通常被解读为“富者更富”。在这些情况下，优势会复合。例如，那些有更多朋友的人有机会接触更多的新朋友，而那些有更多钱的人，有能力做一些增长财富的事情。
+
 As the course progresses we will see several examples of long-tailed distributions, and we should keep in mind that many of the tools in statistics can fail when faced with long-tailed data.  As Nassim Nicholas Taleb pointed out in his book "The Black Swan", such long-tailed distributions played a critical role in the 2008 financial crisis, because many of the financial models used by traders assumed that financial systems would follow the normal distribution, which they clearly did not.
 
-## Learning objectives
+随着课程进行，我们将看到几个长尾分布的例子。我们应当牢记，统计学中的许多工具在面对长尾数据时可能会失效。正如纳西姆·尼古拉斯·塔勒布（Nassim Nicholas Taleb）在其作品《黑天鹅》（"The Black Swan"）中指出的，长尾分布在2008年金融危机中发挥了关键作用：交易者使用的许多模型假设金融系统遵循正态分布，然而事实显非如此。
+
+## Learning objectives 学习目标
 
 Having read this chapter, you should be able to:
 
-* Compute absolute, relative, and cumulative frequency distributions for a given dataset
-* Generate a graphical representation of a frequency distribution
-* Describe the difference between a normal and a long-tailed distribution, and describe the situations that commonly give rise to each
+通过阅读本章，你应当能够：
 
-## Suggested readings
+* Compute absolute, relative, and cumulative frequency distributions for a given dataset
+* 计算给定数据集的频次、频率、累积频次和累积频率；
+* Generate a graphical representation of a frequency distribution
+* 可视化频率分布；
+* Describe the difference between a normal and a long-tailed distribution, and describe the situations that commonly give rise to each
+* 描述正态分布和长尾分布的区别，以及通常会产生这两种分布的情况。
+
+## Suggested readings 推荐阅读
 
 - *The Black Swan: The Impact of the Highly Improbable*, by Nassim Nicholas Taleb
 
