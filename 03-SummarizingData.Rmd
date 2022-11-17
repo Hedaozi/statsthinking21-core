@@ -7,7 +7,7 @@ output:
       in_header: google_analytics.html
   html_document: default
 ---
-# Summarizing data 总结数据
+# Summarizing data 总结数据 {#summarizing-data}
 
 I mentioned in the Introduction that one of the big discoveries of statistics is the idea that we can better understand the world by throwing away information, and that's exactly what we are doing when we summarize a dataset.
 
@@ -89,9 +89,9 @@ PhysActive_table <- NHANES %>%
 kable(PhysActive_table, digits=3, caption='Frequency distribution for PhysActive variable\n`PhysActive`变量的频数分布')
 ```
 
-Table \@ref(tab:PhysActiveTable) shows the frequencies of each of the different values; there were `r I(PhysActive_table %>% subset(PhysActive=='No') %>% dplyr::select(AbsoluteFrequency))` individuals who responded "No" to the question, `r I(PhysActive_table %>% subset(PhysActive=='Yes') %>% dplyr::select(AbsoluteFrequency))` who responded "Yes", and `r I(PhysActive_table %>% subset(is.na(PhysActive)) %>% dplyr::select(AbsoluteFrequency))` for whom no response was given.  We call this a *frequency distribution* because it tells us how frequent each of the possible values is within our sample.
+Table \@ref(tab:PhysActiveTable) shows the frequencies of each of the different values; there were `r I(PhysActive_table %>% subset(PhysActive=='No') %>% dplyr::select('AbsoluteFrequency 频数'))` individuals who responded "No" to the question, `r I(PhysActive_table %>% subset(PhysActive=='Yes') %>% dplyr::select('AbsoluteFrequency 频数'))` who responded "Yes", and `r I(PhysActive_table %>% subset(is.na(PhysActive)) %>% dplyr::select('AbsoluteFrequency 频数'))` for whom no response was given.  We call this a *frequency distribution* because it tells us how frequent each of the possible values is within our sample.
 
-Table \@ref(tab:PhysActiveTable)展示了不同数值的频数：`r I(PhysActive_table %>% subset(PhysActive=='Yes') %>% dplyr::select(AbsoluteFrequency))`人选择了“Yes”，`r I(PhysActive_table %>% subset(PhysActive=='No') %>% dplyr::select(AbsoluteFrequency))`人选择了“No”，而`r I(PhysActive_table %>% subset(is.na(PhysActive)) %>% dplyr::select(AbsoluteFrequency))`人没有回答。我们将这称为“频数分布”（*frequency distribution*）。频数分布给出了每个可能的取值在样本中出现的频数。
+Table \@ref(tab:PhysActiveTable)展示了不同数值的频数：`r I(PhysActive_table %>% subset(PhysActive=='Yes') %>% dplyr::select('AbsoluteFrequency 频数'))`人选择了“Yes”，`r I(PhysActive_table %>% subset(PhysActive=='No') %>% dplyr::select('AbsoluteFrequency 频数'))`人选择了“No”，而`r I(PhysActive_table %>% subset(is.na(PhysActive)) %>% dplyr::select('AbsoluteFrequency 频数'))`人没有回答。我们将这称为“频数分布”（*frequency distribution*）。频数分布给出了每个可能的取值在样本中出现的频数。
 
 This shows us the absolute frequency of the two responses, for everyone who actually gave a response. We can see from this that there are more people saying "Yes" than "No", but it can be hard to tell from absolute numbers how big the difference is in relative terms.  For this reason, we often would rather present the data using *relative frequency*, which is obtained by dividing each frequency by the sum of all frequencies:
 
@@ -129,7 +129,7 @@ kable(PhysActive_table_filtered, caption='Absolute and relative frequencies and 
 
 ```
 
-Table \@ref(tab:PhysActiveTableFiltered) lets us see that `r formatC(I(PhysActive_table_filtered %>% subset(PhysActive=='No') %>% dplyr::select(Percentage) %>% pull()), digits=1, format='f')` percent of the individuals in the NHANES sample said "No" and `r formatC(I(PhysActive_table_filtered %>% subset(PhysActive=='Yes') %>% dplyr::select(Percentage) %>% pull()), digits=1, format='f')` percent said "Yes".
+Table \@ref(tab:PhysActiveTableFiltered) lets us see that `r formatC(I(PhysActive_table_filtered %>% subset(PhysActive=='No') %>% dplyr::select('Percentage 百分比') %>% pull()), digits=1, format='f')` percent of the individuals in the NHANES sample said "No" and `r formatC(I(PhysActive_table_filtered %>% subset(PhysActive=='Yes') %>% dplyr::select('Percentage 百分比') %>% pull()), digits=1, format='f')` percent said "Yes".
 
 Table \@ref(tab:PhysActiveTableFiltered)表明，45.4%的受访者回答了“No”，而54.6%的受访者回答了“Yes”。
 
@@ -233,10 +233,10 @@ Let's do this for our sleep variable, computing the absolute and cumulative freq
 ```{r sleepAbsCumulRelFreq,echo=FALSE,fig.cap="A plot of the relative (solid) and cumulative relative (dashed) values for frequency (left) and proportion (right) for the possible values of SleepHrsNight.\n`SleepHrsNight`变量可能取值的频次（左，实线）与比例（右，实线）及其累积值（虚线）。",fig.width=8,fig.height=4,out.height='33%'}
 
 p1 <- SleepHrsNight_cumulative %>% 
-  ggplot(aes(SleepHrsNight, AbsoluteFrequency)) +
+  ggplot(aes(SleepHrsNight, `AbsoluteFrequency 频次`)) +
   geom_line(size = 1.25) +
   geom_line(
-    aes(SleepHrsNight, CumulativeFrequency), 
+    aes(SleepHrsNight, `CumulativeFrequency 累积频次`), 
     linetype = "dashed",
     size = 1.25
   ) +
@@ -510,7 +510,9 @@ waittimes <-
 
 p1 <- waittimes %>% 
   ggplot(aes(waittime)) +
-  geom_histogram(binwidth = 1)
+  geom_histogram(binwidth = 1) +
+  xlab("waittime 等待时间") +
+  ylab("count 计数") 
 
 fbdata <- 
   read.table("data/04/facebook_combined.txt")
@@ -519,9 +521,7 @@ fbdata <-
 friends_table <- 
   fbdata %>%
   group_by(V1) %>%
-  summarize(nfriends = n()) +
-  xlab("waittime 等待时间") +
-  ylab("count 计数") 
+  summarize(nfriends = n())
 
 p2 <- friends_table %>% 
   ggplot(aes(nfriends)) +
